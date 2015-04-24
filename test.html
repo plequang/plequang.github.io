@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cosmoz 3</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.6.1/webcomponents.js"></script>
+	<link rel="import" href="404.html">
+
+</head>
+
+<body>
+
+<button>Click me to 404 import</button>
+<script>
+
+var button = document.querySelector('button');
+button.addEventListener('click', function () {
+	console.log('button click');
+	var importLink = document.createElement('link');
+	importLink.setAttribute('rel', 'import');
+	importLink.setAttribute('href', 'Another_404.html');
+	//importLink.setAttribute('async', '');
+
+	importLink.addEventListener('error', function () {
+		console.log('oops, wrong import');
+	});
+	document.head.appendChild(importLink);
+});
+
+</script>
+
+</body>
+</html>
